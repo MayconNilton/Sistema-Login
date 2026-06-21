@@ -8,7 +8,23 @@ botaoRegistra.addEventListener("click",  function(){
     const confirmarSenha = document.getElementById("confirmarSenha").value
 
     if (senha !== confirmarSenha){
-        alert("Erro! As senha nao são iguais")
+        alert("Erro! As senha não são iguais")
         return
     }
+
+
+    fetch("http://localhost:3000/registrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            login: login,
+            email: email,
+            senha: senha,
+            confirmarSenha: confirmarSenha
+        })
+    })
 })
+
+
