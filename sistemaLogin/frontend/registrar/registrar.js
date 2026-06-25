@@ -12,7 +12,6 @@ botaoRegistra.addEventListener("click",  function(){
         return
     }
 
-
     fetch("http://localhost:3000/registrar", {
         method: "POST",
         headers: {
@@ -22,8 +21,13 @@ botaoRegistra.addEventListener("click",  function(){
             login: login,
             email: email,
             senha: senha,
-            confirmarSenha: confirmarSenha
         })
+    })
+    .then(function (resposta){
+        return resposta.text()
+    })
+    .then(function (mensagem){
+        alert(mensagem)
     })
 })
 

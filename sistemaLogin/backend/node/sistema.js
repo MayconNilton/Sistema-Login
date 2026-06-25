@@ -6,21 +6,24 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
+const usuarios = []
+
 app.post("/registrar", function (req, res) {
     const login = req.body.login
     const email = req.body.email
     const senha = req.body.senha
-    const confirmarSenha = req.body.confirmarSenha
 
-    console.log("Login:", login)
-    console.log("Email:", email)
-    console.log("Senha:", senha)
-    console.log("Confirmar senha:", confirmarSenha)
+    usuarios.push({
+        login:login,
+        email:email,
+        senha:senha,
+    })
 
-    res.send("Usuario recebido no backend")
+    res.send("Usuario Cadastrato com sucesso")
 })
 
 app.listen(3000, function () {
     console.log("Servidor rodando na porta 3000")
 })
+
 
